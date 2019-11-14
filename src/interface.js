@@ -2,14 +2,23 @@ $(document).ready(function() {
   var thermostat = new Thermostat();
   $('#temperature').text(thermostat.temp);
 
+  function updateTemp() {
+    $('#temperature').text(thermostat.temp)
+  }
+
   $('#temperture-up').on('click', function() {
     thermostat.up(1);
-    $('#temperature').text(thermostat.temp)
+    updateTemp();
   })
 
   $('#temperature-down').on('click', function() {
     thermostat.down(1);
-    $('#temperature').text(thermostat.temp)
+    updateTemp();
+  })
+
+  $('#temerature-reset').on('click', function() {
+    thermostat.reset();
+    updateTemp();
   })
 
 })
