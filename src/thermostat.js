@@ -45,7 +45,7 @@ Thermostat.prototype.usage = function () {
 };
 
 Thermostat.prototype.isMaxTemp = function(num) {
-  return (this.temp + num )>= this.maxTemp;
+  return this.temp === this.maxTemp;
 };
 
 Thermostat.prototype.reset = function () {

@@ -4,6 +4,7 @@ $(document).ready(function() {
 
   function updateTemp() {
     $('#temperature').text(thermostat.temp)
+    $('#temperature').attr('class', thermostat.usage());
   }
 
   $('#temperture-up').on('click', function() {
