@@ -34,6 +34,16 @@ Thermostat.prototype.powerSave = function(mode) {
   };
 };
 
+Thermostat.prototype.usage = function () {
+  if(this.temp < 18){
+    return 'low-usage';
+  }
+  else if (this.temp < 25){
+    return 'medium-usage';
+  }
+  return 'high-usage';
+};
+
 Thermostat.prototype.isMaxTemp = function(num) {
   return (this.temp + num )>= this.maxTemp;
 };

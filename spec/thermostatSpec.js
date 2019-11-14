@@ -52,6 +52,23 @@ describe ('Thermostat', function() {
     it('should change isOn to false when powersave mode turned off', function() {
       thermostat.powerSave('off')
       expect(thermostat.isOn).toEqual(false);
-    })
+    });
+  });
+
+  describe('energy usage', function() {
+    it('should be low usage if temp is less than 18 degrees', function(){
+      thermostat.temp = 16;
+      expect(thermostat.usage()).toEqual('low-usage');
+    });
+
+    it('should be medium-usage if temp is less than 25', function() {
+      thermostat.temp = 22;
+      expect(thermostat.usage()).toEqual('medium-usage');
+    });
+
+    it('should be high-usage if temp is over 25 degrees', function() {
+      thermostat.temp = 33;
+      expect(thermostat.usage()).toEqual('high-usage');
+    });
   });
 });
