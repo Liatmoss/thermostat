@@ -21,4 +21,16 @@ $(document).ready(function() {
     updateTemp();
   })
 
+  $('#psm-on').on('click', function() {
+    thermostat.powerSave('on');
+    $('#power-saving-status').text('PSM On');
+    updateTemp();
+  })
+
+  $('#psm-off').on('click', function() {
+    thermostat.powerSave('off');
+    $('#power-saving-status').text('PSM Off');
+    updateTemp();
+  })
+
 })
