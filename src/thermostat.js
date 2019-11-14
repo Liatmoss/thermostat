@@ -6,7 +6,7 @@ function Thermostat() {
 }
 
 Thermostat.prototype.up = function(number) {
-  if (this.isMaxTemp()) {
+  if (this.isMaxTemp(number)) {
     return;
   }
   return this.temp += number;
@@ -34,8 +34,8 @@ Thermostat.prototype.powerSave = function(mode) {
   };
 };
 
-Thermostat.prototype.isMaxTemp = function() {
-  return this.temp === this.maxTemp;
+Thermostat.prototype.isMaxTemp = function(num) {
+  return (this.temp + num )>= this.maxTemp;
 };
 
 Thermostat.prototype.reset = function () {
