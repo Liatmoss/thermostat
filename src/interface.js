@@ -1,11 +1,12 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
-  $('#temperature').text(thermostat.temp);
 
   function updateTemp() {
     $('#temperature').text(thermostat.temp)
     $('#temperature').attr('class', thermostat.usage());
   }
+
+  $(updateTemp())
 
   $('#temperture-up').on('click', function() {
     thermostat.up(1);
@@ -24,13 +25,13 @@ $(document).ready(function() {
 
   $('#psm-on').on('click', function() {
     thermostat.powerSave('on');
-    $('#power-saving-status').text('PSM On');
+    $('#power-saving-status').text('On');
     updateTemp();
   })
 
   $('#psm-off').on('click', function() {
     thermostat.powerSave('off');
-    $('#power-saving-status').text('PSM Off');
+    $('#power-saving-status').text('Off');
     updateTemp();
   })
 
